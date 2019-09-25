@@ -29,6 +29,8 @@
         platform.create(10, 600);
         platform.create(500, 550);
         platform.create(500, 430);
+        platform.create(10, 80);
+        platform.create(550, 600);
         /*
          * ground : here, we create a floor. Given the width of of the platform 
          * asset, giving it a scaleX and scaleY of 2 will stretch it across the 
