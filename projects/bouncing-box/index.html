@@ -53,31 +53,35 @@
 			var boardWidth = jQuery('.board').width();
 	
 			// TODO 2 - Variable declarations 
-var position;       // reference for the x-coordinate of our box
-var points;         // reference for the points displayed on the box
-var speed;          // reference for how fast the box moves
-var direction       // reference for the direction the box is moving: 1 means right, -1 means left
-
-position = 0;
-points = 0;
-speed = 10;
-direction = 1;
-
-box.css('left', position);      // moves the box to the x-coordinate of <position> 
-box.text(points);               // changes the text of the box to display the value of <points>
+            var position;       // reference for the x-coordinate of our box
+            var points;         // reference for the points displayed on the box
+            var speed;          // reference for how fast the box moves
+            var direction       // reference for the direction the box is moving: 1 means right, -1 means left
+            
+            position = 0;
+            points = 0;
+            speed = 10;
+            direction = 1;
+            
+            box.css('left', position);      // moves the box to the x-coordinate of <position> 
+            box.text(points);               // changes the text of the box to display the value of <points>
 			
 			function update() {
 				// TODO 3 / 6 / 7 / 8
-		      position += speed * direction;    // increment position by speed on every update
-             console.log("new position: " + position);
+    		     position += speed * direction;    // increment position by speed on every update
+                 console.log("new position: " + position);
  
-            if(position > boardWidth) {
-             console.log("Right Wall Hit");
-             direction = -1;
-                 }
-			box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
-		 
-		};
+                if(position + jQuery('.box').width() > boardWidth) {
+                     console.log("Right Wall Hit");
+                     direction = -1;
+                }
+                else if (position < 0) {
+                    direction = 1;
+                         
+                }
+    			box.css('left', position);      // set the 'left' CSS property of the box to the new value of position
+    		 
+    		};
 
 
 			
