@@ -18,13 +18,13 @@
     cannon.init = function (game) {
         ////////////////////////////////////////////////////////////////////////
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
-         cannon.create.onLeft(650);
-       cannon.create.onLeft(351); 
-       cannon.create.onLeft(64);
-       cannon.create.onLeft(553);
-        cannon.create.onTop(450);
+    //     cannon.create.onLeft(650);
+     //  cannon.create.onLeft(351); 
+      // cannon.create.onLeft(164);
+     //  cannon.create.onLeft(553);
+     //   cannon.create.onTop(450);
         
-        cannon.create.onBottom(300);
+       // cannon.create.onBottom(300);
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
