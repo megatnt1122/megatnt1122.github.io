@@ -27,6 +27,28 @@ var level01 = function (window) {
 
         // BEGIN EDITING YOUR CODE HERE
 
+function createSawBlade(x,y) {
+  var hitZoneSize = 25;
+var damageFromObstacle = 10;
+var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+myObstacle.x = x;
+myObstacle.y = y;
+game.addGameItem(myObstacle);  
+var obstacleImage = draw.bitmap('img/sawblade.png');
+myObstacle.addChild(obstacleImage);
+obstacleImage.x = -25;
+obstacleImage.y = -25;
+}  
+createSawBlade(100,100);
+createSawBlade(200,200);
+createSawBlade(300,300);
+
+
+for (var i = 0; i<levelData.length;i++) {
+    var gameItem = levelData.gameItems
+    // Create a sawblade using the .x and .y property of each game item object
+}
+
 
     }
 };
