@@ -6,17 +6,17 @@ var level01 = function (window) {
     var createjs = window.createjs;
 
     window.opspark.runLevelInGame = function(game) {
-        // some useful constants 
+        // some useful constants
         var groundY = game.groundY;
 
         // this data will allow us to define all of the
         // behavior of our game
         var levelData = {
             name: "Robot Romp",
-            number: 1, 
+            number: 1,
             speed: -3,
             gameItems: [
-                  {type: 'box',x:100,y:200},
+                {type: 'box',x:100,y:200},
                 {type: 'sawblade',x:400,y:groundY},
                 {type: 'sawblade',x:600,y:groundY},
                 {type: 'sawblade',x:900,y:groundY}
@@ -41,9 +41,11 @@ enemy.rotationalVelocity = 10;
 
 function onHit() {
     console.log('The enemy has hit Halle');
-};
-enemy.onPlayerCollision = onHit();
 game.changeIntegrity(-10);
+};
+
+enemy.onPlayerCollision = onHit();
+
 
 
 function createSawBlade(x,y) {
@@ -52,24 +54,24 @@ var damageFromObstacle = 10;
 var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
 myObstacle.x = x;
 myObstacle.y = y;
-game.addGameItem(myObstacle);  
+game.addGameItem(myObstacle);
 var obstacleImage = draw.bitmap('img/sawblade.png');
 myObstacle.addChild(obstacleImage);
 obstacleImage.x = -25;
 obstacleImage.y = -25;
-}  
+}
 function createBox(x,y) {
   var hitZoneSize = 25;
 var damageFromObstacle = 10;
 var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
 myObstacle.x = x;
 myObstacle.y = y;
-game.addGameItem(myObstacle);  
+game.addGameItem(myObstacle);
 var obstacleImage = draw.bitmap('img/sawblade.png');
 myObstacle.addChild(obstacleImage);
 obstacleImage.x = -25;
 obstacleImage.y = -25;
-}  
+}
 createSawBlade(100,100);
 createSawBlade(200,200);
 createSawBlade(300,300);
