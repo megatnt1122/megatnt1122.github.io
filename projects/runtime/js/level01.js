@@ -19,7 +19,7 @@ var level01 = function (window) {
                 {type: 'box',x:100,y:200},
                 {type: 'sawblade',x:400,y:groundY},
                 {type: 'sawblade',x:600,y:groundY},
-                {type: 'sawblade',x:900,y:groundY}
+                {type: 'sawblade',x:900,y:groundY},
             ]
         };
         window.levelData = levelData;
@@ -29,24 +29,21 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
 var enemy =  game.createGameItem('enemy',25);
 var redSquare = draw.rect(50,50,'red');
+var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+var damageFromObstacle = 10;
+var hitZoneSize = 25;
 redSquare.x = -25;
 redSquare.y = -25;
 enemy.addChild(redSquare);
 enemy.x = 400;
 enemy.y = groundY-50;
 game.addGameItem(enemy);
-enemy.velocityX = -1;
-
+//enemy.velocityX = -1;
 enemy.rotationalVelocity = 10;
-
-function onHit() {
+enemy.onPlayerCollision = function() {
     console.log('The enemy has hit Halle');
 game.changeIntegrity(-10);
-};
-
-enemy.onPlayerCollision = onHit();
-
-
+}
 
 function createSawBlade(x,y) {
   var hitZoneSize = 25;
@@ -60,6 +57,8 @@ myObstacle.addChild(obstacleImage);
 obstacleImage.x = -25;
 obstacleImage.y = -25;
 }
+
+
 function createBox(x,y) {
   var hitZoneSize = 25;
 var damageFromObstacle = 10;
@@ -71,7 +70,14 @@ var obstacleImage = draw.bitmap('img/sawblade.png');
 myObstacle.addChild(obstacleImage);
 obstacleImage.x = -25;
 obstacleImage.y = -25;
+myBox.onPlayerCollision = function() {
+    console.log('The enemy has hit Halle');
+game.changeIntegrity(-10);
+};
 }
+
+
+
 createSawBlade(100,100);
 createSawBlade(200,200);
 createSawBlade(300,300);
@@ -82,9 +88,6 @@ for (var i = 0; i<levelData.length;i++) {
     // Create a sawblade using the .x and .y property of each game item object
 }
 
-
-    }
-};
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
